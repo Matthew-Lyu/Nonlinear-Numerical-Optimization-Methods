@@ -16,11 +16,15 @@
 1. 梯度计算：
 
   最速下降法在每次迭代中使用梯度来确定下降的方向。梯度是多变量函数在给定点的方向导数向量, 指向函数增长最快的方向。因此, 负梯度方向即是函数下降最快的方向。梯度的数学表达式为:
+
+
 $$
 \nabla f(x)=\left[\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n}\right]^T
 $$
 
-​	其中 $f$ 是目标函数， $x=\left[x_1, x_2, \ldots, x_n\right]^T$ 是变量向量。
+
+
+其中 $f$ 是目标函数， $x=\left[x_1, x_2, \ldots, x_n\right]^T$ 是变量向量。
 
 2. 迭代公式:
 
