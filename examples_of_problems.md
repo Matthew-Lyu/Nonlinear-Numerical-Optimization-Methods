@@ -1,4 +1,4 @@
-The following are five typical examples of solving optimization numerical problems. For the solution code, see the path './util/'
+The following are five typical examples of solving optimization numerical problems. For the solution code, see the path './utils/'
 
 1. Using the steepest gradient descent method to solve
    $$
