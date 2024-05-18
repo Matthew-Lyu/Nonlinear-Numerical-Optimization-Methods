@@ -1,31 +1,21 @@
-X0 = [0; 1];
-[final_x, min_val, iterations] = damp_newton_method(@fun, @gfun, @hess, X0);
-disp(final_x)
-disp(min_val)
-disp(iterations)
+clear
+clc
 
-X0 = [0; 1];
-[final_x, min_val, iterations] = revise_newton_method(@fun, @gfun, @hess, X0);
-disp(final_x)
-disp(min_val)
-disp(iterations)
+fun = @(x) x(1)^2 + x(2)^2 - x(1)*x(2)- 10*x(1) - 4*x(2) + 60;
+gfun = @(x) [2*x(1) - x(2) - 10; 2*x(2) - x(1) - 4];
+hessian = @(X) [2, -1; -1, 2];
 
-function val = fun(X)
-    x1 = X(1);
-    x2 = X(2);
-    val = x1^2 + x2^2 - x1*x2 - 10*x1 - 4*x2 + 60;
-end
+x0 = [1; 2];
+[x,val,k] = damp_newton_method(fun, gfun, hessian, x0);
+fprintf('阻尼牛顿法求解: x = [%f, %f]\n', x(1), x(2));
+fprintf('最小值: f(x) = %f\n', val);
+fprintf('迭代次数: %d\n', k);
 
-function grad = gfun(X)
-    x1 = X(1);
-    x2 = X(2);
-    grad = [2*x1 - x2 - 10;
-            2*x2 - x1 - 4];
-end
+disp(' ')
 
-function hess = hess(X)
-    x1 = X(1);
-    x2 = X(2);
-    hess = [2, -1;
-            -1, 2];
-end
+[x,val,k] = revise_newton_method(fun, gfun, hessian, x0);
+fprintf('修正牛顿法求解: x = [%f, %f]\n', x(1), x(2));
+fprintf('最小值: f(x) = %f\n', val);
+fprintf('迭代次数: %d\n', k);
+
+
