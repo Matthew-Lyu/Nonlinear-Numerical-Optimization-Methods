@@ -1,5 +1,5 @@
 function [x_opt, f_opt, iter] = damp_newton_method(fun, grad, hess, x0)
-    % 阻尼牛顿法函数
+    % 阻尼牛顿法
     % 输入：
     %   fun: 目标函数
     %   grad: 梯度函数
