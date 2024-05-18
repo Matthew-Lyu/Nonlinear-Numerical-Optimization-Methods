@@ -1,9 +1,25 @@
 %%% 利用光滑牛顿法求解信赖域子问题 %%%
-function  [d, val, lam, k] = trust_method_quadratic_model(gk, Bk, dta)
-    n = length(gk); gamma=0.05;
-    epsilon=1.0e-6;  rho=0.6;  sigma=0.2;
-    mu0=0.05;  lam0=0.05;
-    d0=ones(n,1);  u0=[mu0, zeros(1,n+1)]';
+function  [d, val, lam, k] = trust_region_quadratic_model(gk, Bk, dta)
+    % 光滑牛顿法
+    % 输入：
+    %   gk: 当前点的梯度
+    %   Bk: 当前点的 Hessian 矩阵
+    %   delta_k: 信赖域半径
+    % 输出：
+    %   d: 子问题的解
+    %   val: 目标函数在 d 处的值
+    %   lam: 最优拉格朗日乘子
+    %   k: 迭代次数
+
+    n = length(gk); 
+    gamma=0.05;
+    epsilon=1.0e-6;  
+    rho=0.6;  
+    sigma=0.2;
+    mu0=0.05;  
+    lam0=0.05;
+    d0=ones(n,1);  
+    u0=[mu0, zeros(1,n+1)]';
     z0=[mu0, lam0,d0']';
     k=0; %k为迭代次数
     z = z0; mu=mu0; lam=lam0; d=d0;
@@ -52,6 +68,7 @@ function  [d, val, lam, k] = trust_method_quadratic_model(gk, Bk, dta)
         bet=gamma*norm(dhh)*min(1,norm(dhh));
     end
 
+    % 定义雅可比矩阵
     function A=JacobiH(mu,lam,d,Bk,dta)
         n2=length(d);
         A=zeros(n2+2,n2+2);
