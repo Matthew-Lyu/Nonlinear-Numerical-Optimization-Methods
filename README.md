@@ -1,5 +1,12 @@
 # Optimization-Theory-and-Methods
 
+$$
+\begin{array}{ll}
+\min & q_k(d)=g_k^T d+\frac{1}{2} d^T B_k d, \\
+\text{s.t.} & \|d\| \leq \Delta_k
+\end{array}
+$$
+
 本仓库是对最优化方法的介绍和MATLAB代码复现。
 
 ### 1. 最速梯度下降法
