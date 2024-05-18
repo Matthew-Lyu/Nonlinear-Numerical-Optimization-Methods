@@ -13,7 +13,7 @@ fprintf('迭代次数: %d\n', k);
 
 disp(' ')
 
-[x,val,k] = revise_newton_method(fun, gfun, hessian, x0);
+[x,val,k] = revised_newton_method(fun, gfun, hessian, x0);
 fprintf('修正牛顿法求解: x = [%f, %f]\n', x(1), x(2));
 fprintf('最小值: f(x) = %f\n', val);
 fprintf('迭代次数: %d\n', k);
