@@ -1,5 +1,5 @@
-function [x_opt, f_opt, iter] = revised_newton_method(fun, grad, hess, x0)
-    % 修正牛顿法
+function [x_opt, f_opt, iter] = revised_newton(fun, grad, hess, x0)
+    % 修正牛顿法函数
     % 输入：
     %   fun: 目标函数
     %   grad: 梯度函数
@@ -10,13 +10,13 @@ function [x_opt, f_opt, iter] = revised_newton_method(fun, grad, hess, x0)
     %   f_opt: 最优解对应的函数值
     %   iter: 迭代次数
 
-    n = length(x0); 
+    n = length(x0); % 维度
     max_iter = 1000; % 最大迭代次数
     rho = 0.55; % 线搜索参数
     sigma = 0.4; % Armijo条件系数
     tau = 0.0; % 修正因子
-    iter = 0; % 迭代次数
-    epsilon = 0.01; % 误差阈值
+    iter = 0; % 迭代次数计数器
+    epsilon = 0.01; % 容许误差
 
     % 初始化
     x = x0;
@@ -35,11 +35,12 @@ function [x_opt, f_opt, iter] = revised_newton_method(fun, grad, hess, x0)
         % 计算搜索方向
         d = -A \ g;
 
+        % 初始化线搜索参数
         m = 0;
         mk = 0;
 
         % 线搜索
-        while m < 100
+        while m < 100 % 添加迭代次数限制，防止无限循环
             if feval(fun, x + rho^m * d) < feval(fun, x) + sigma * rho^m * g' * d
                 mk = m; % 更新 mk
                 break;
@@ -49,6 +50,8 @@ function [x_opt, f_opt, iter] = revised_newton_method(fun, grad, hess, x0)
 
         % 更新当前点
         x = x + rho^mk * d;
+
+        % 更新迭代次数
         iter = iter + 1;
 
         % 判断停止条件：梯度小于阈值
