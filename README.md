@@ -23,13 +23,11 @@
 
 **步3** 寻找满足Armijo条件的步长。定义 $m_k$ 为满足以下不等式的最小非负整数 $m$：
 
-
 $$
 \begin{array}{ll}
 f(x_k + \delta^m d_k) \leq f(x_k) + \sigma \delta^m g_k^T d_k
 \end{array}
 $$
-
 
 **步4**更新下一个点为 $x_{k+1} = x_k + \alpha_k d_k$，增加迭代次数 $k := k + 1$，然后返回步 1。
 
@@ -41,14 +39,18 @@ $$
 
 **步2** 计算海森矩阵 $G_k=\nabla^2 f\left(x_k\right)$. 解线性方程组
 $$
+\begin{array}{ll}
 \left(G_k+\mu_k I\right) d=-g_k
+\end{array}
 $$
 
 得解 $d_k$.
 
 **步3** 令 $m_k$ 是满足下列不等式的最小非负整数 $m$ :
 $$
+\begin{array}{ll}
 f\left(x_k+\delta^m d_k\right) \leq f\left(x_k\right)+\sigma \delta^m g_k^T d_k .
+\end{array}
 $$
 
 令 $\alpha_k=\delta^{m_k}, x_{k+1}:=x_k+\alpha_k d_k$.
@@ -63,7 +65,9 @@ $$
 
 **步2** 计算搜索方向 $d_k:$
 $$
+\begin{array}{ll}
 d_k= \begin{cases}-g_k, & k=0, \\ -g_k+\beta_{k-1} d_{k-1}, & k \geq 1,\end{cases}
+\end{array}
 $$
 
 其中当 $k \geq 1$ 时, 其中 $\beta_{k-1}=\frac{g_k^T g_k}{g_{k-1}^T g_{k-1}}$（该式由 Fletcher 和 Reeves 给出的, 故称之为 Fletcher-Reeves 公 式, 简称 FR 公式）
@@ -80,7 +84,9 @@ $$
 
 **步1** 若不等式
 $$
+\begin{array}{ll}
 f\left(x_k+\beta^m d_k\right) \leq f\left(x_k\right)+\sigma \beta^m g_k^T d_k
+\end{array}
 $$
 
 成立, 置 $m_k:=m, x_{k+1}:=x_k+\beta^{m_k} d_k$, 算法终止. 否则, 转步 2 .
@@ -91,7 +97,9 @@ $$
 
 用信赖域方法求解无约束优化问题
 $$
+\begin{array}{ll}
 \min _{x \in \mathbb{R}^n} f(x)
+\end{array}
 $$
 
 设 $x_k$ 是第 $k$ 次迭代点. 记 $f_k=f\left(x_k\right), g_k=\nabla f\left(x_k\right), B_k$ 是 Hesse 阵 $\nabla^2 f\left(x_k\right)$ 的第 $k$ 次近似, 则第 $k$ 次迭代步的信赖域子问题具有如下形式:
@@ -103,16 +111,22 @@ $$
 $$
 其中 $\Delta_k$ 是信赖域半径, $\|\cdot\|$ 是任一种向量范数, 通常取 2 -范数或 $\infty$-范数. 设子问题的最优解为 $d_k$, 定义 $\Delta f_k$ 为 $f$ 在第 $k$ 步的实际下降量:
 $$
+\begin{array}{ll}
 \Delta f_k=f_k-f\left(x_k+d_k\right)
+\end{array}
 $$
 $\Delta q_k$ 为对应的预测下降量:
 $$
+\begin{array}{ll}
 \Delta q_k=q_k(0)-q_k\left(d_k\right) .
+\end{array}
 $$
 
 再定义它们的比值为
 $$
+\begin{array}{ll}
 r_k=\frac{\Delta f_k}{\Delta q_k} .
+\end{array}
 $$
 一般地, 我们有 $\Delta q_k>0$. 因此, 若 $r_k<0$, 则 $\Delta f_k<0, x_k+d_k$ 不能作为下一个迭代点, 需要缩小信赖域半径重新求解子问题. 若 $r_k$ 比较接近 1 , 说明二次模型与目标函数在信赖域范围内有很好的近似, 此时 $x_{k+1}:=x_k+d_k$ 可以作为新的迭代点, 同时下一次迭代时可以增大信赖域半径. 对于其他情况, 信赖域半径可以保持不变. 下面给出求解无约束优化问题信赖域方法的一般框架.
 
@@ -128,7 +142,9 @@ $$
 
 **步4** 校正信赖域半径.
 $$
+\begin{array}{ll}
 \Delta_{k+1}:= \begin{cases}\tau_1 \Delta_k, & \text { 若 } r_k \leq \eta_1, \\ \Delta_k, & \text { 若 } \eta_1<r_k<\eta_2, \\ \min \left\{\tau_2 \Delta_k, \tilde{\Delta}\right\}, & \text { 若 } r_k \geq \eta_2,\left\|d_k\right\|=\Delta_k .\end{cases}
+\end{array}
 $$
 
 **步5** 若 $r_k>\eta_1$, 则令 $x_{k+1}:=x_k+d_k$, 更新矩阵 $B_k$ 到 $B_{k+1}$, 令 $k:=k+1$,转步 1 . 否则 $x_{k+1}:=x_k$, 令 $k:=k+1$, 转步 2 .
@@ -141,16 +157,22 @@ $$
 
 **步2** 求解下列方程组得解 $\Delta z_j=\left(\Delta \mu_j, \Delta \lambda_j, \Delta d_j\right)$,
 $$
+\begin{array}{ll}
 H\left(z_j\right)+H^{\prime}\left(z_j\right) \Delta z_j=\beta_j \bar{z} .
+\end{array}
 $$
 
 **步3** 设 $m_j$ 为满足下式的最小非负整数:
 $$
+\begin{array}{ll}
 \left\|H\left(z_j+\delta^{m_j} \Delta z_j\right)\right\| \leq\left[1-\sigma\left(1-\beta \mu_0\right) \delta^{m_j}\right]\left\|H\left(z_j\right)\right\| .
+\end{array}
 $$
 
 $$
+\begin{array}{ll}
 \text { 令 } \alpha_j:=\delta^{m_j}, z_{j+1}=z_j+\alpha_j \Delta z_j \text {. }
+\end{array}
 $$
 
 **步4** 令 $j:=j+1$, 转步 1 .
