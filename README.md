@@ -23,9 +23,7 @@
 **步2** 计算当前点的海森矩阵 $G_k=\nabla^2 f(x_k)$，并求解线性方程组 $G_k d = -g_k$，得到方向 $d_k$。
 
 **步3** 寻找满足Armijo条件的步长。定义 $m_k$ 为满足以下不等式的最小非负整数 $m$：
-$$
-f(x_k + \delta^m d_k) \leq f(x_k) + \sigma \delta^m g_k^T d_k.
-$$
+$$ f(x_k + \delta^m d_k) \leq f(x_k) + \sigma \delta^m g_k^T d_k. $$
 
 **步4**更新下一个点为 $x_{k+1} = x_k + \alpha_k d_k$，增加迭代次数 $k := k + 1$，然后返回步 1。
 
