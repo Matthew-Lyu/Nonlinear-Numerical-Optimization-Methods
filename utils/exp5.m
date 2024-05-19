@@ -8,6 +8,6 @@ hessian = @(x) [1200*x(1)^2-400*x(2)+2, -400*x(1); -400*x(1), 200];
 x0 = [2; 1];
 [x, val, k] = trust_region_method(fun, gfun, hessian, x0);
 
-fprintf('信赖区域求解: x = [%f, %f]\n', x(1), x(2));
+fprintf('信赖域法求解: x = [%f, %f]\n', x(1), x(2));
 fprintf('最小值: f(x) = %f\n', val);
 fprintf('迭代次数: %d\n', k);
