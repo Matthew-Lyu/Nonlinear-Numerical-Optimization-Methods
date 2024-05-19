@@ -25,7 +25,7 @@
 **步3** 寻找满足Armijo条件的步长。定义 $m_k$ 为满足以下不等式的最小非负整数 $m$：
 
 ```math
-f\left(x_k+\delta^m d_k\right) \leq f\left(x_k\right)+\sigma \delta^m g_k^T d_k \text {. }
+f\left(x_k+\delta^m d_k\right) \leq f\left(x_k\right)+\sigma \delta^m g_k^T d_k \text
 ```
 
 **步4**更新下一个点为 $x_{k+1} = x_k + \alpha_k d_k$，增加迭代次数 $k := k + 1$，然后返回步 1。
@@ -37,9 +37,10 @@ f\left(x_k+\delta^m d_k\right) \leq f\left(x_k\right)+\sigma \delta^m g_k^T d_k 
 **步1** 计算 $g_k=\nabla f\left(x_k\right), \mu_k=\left\|g_k\right\|^{1+\tau}$. 若 $\left\|g_k\right\| \leq \varepsilon$, 算法终止, 输出 $x_k$ 作为近似极小点.
 
 **步2** 计算海森矩阵 $G_k=\nabla^2 f\left(x_k\right)$. 解线性方程组
-$$
+
+```math
 \left(G_k+\mu_k I\right) d=-g_k
-$$
+```
 
 得解 $d_k$.
 
