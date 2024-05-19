@@ -139,7 +139,7 @@ r_k=\frac{\Delta f_k}{\Delta q_k} .
 
 ```math
 \begin{array}{ll}
-\Delta_{k+1}:= \begin{cases}\tau_1 \Delta_k, & \text { 若 } r_k \leq \eta_1, \\ \Delta_k, & \text { 若 } \eta_1<r_k<\eta_2, \\ \min \left\{\tau_2 \Delta_k, \tilde{\Delta}\right\}, & \text { 若 } r_k \geq \eta_2,\left\|d_k\right\|=\Delta_k .\end{cases}
+\begin{cases}\tau_1 \Delta_k, & \text { 若 } r_k \leq \eta_1, \\ \Delta_k, & \text { 若 } \eta_1<r_k<\eta_2, \\ \min \left\{\tau_2 \Delta_k, \tilde{\Delta}\right\}, & \text { 若 } r_k \geq \eta_2,\left\|d_k\right\|=\Delta_k .\end{cases}
 \end{array}
 ```
 
