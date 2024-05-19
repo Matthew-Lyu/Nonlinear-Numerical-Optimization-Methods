@@ -69,12 +69,12 @@ function [d, val, lam, k] = trust_region_quadratic_model(gk, Bk, dta)
     function dh = dah(mu, lam, d, gk, Bk, dta)
         n1 = length(d);
         dh(1) = mu;  
-        dh(2) = phi(mu, lam, dta^2 - norm(d)^2); % 计算残差中的部分
-        mh = (Bk + lam * eye(n1)) * d + gk; % 计算残差中的部分
+        dh(2) = phi(mu, lam, dta^2 - norm(d)^2);
+        mh = (Bk + lam * eye(n1)) * d + gk; 
         for (i = 1:n1)
-            dh(2 + i) = mh(i); % 计算残差中的部分
+            dh(2 + i) = mh(i); 
         end
-        dh = dh(:); % 将残差向量转换为列向量
+        dh = dh(:); 
     end
 
     function bet = beta(mu, lam, d, gk, Bk, dta, gamma)
@@ -85,9 +85,9 @@ function [d, val, lam, k] = trust_region_quadratic_model(gk, Bk, dta)
     % 定义雅可比矩阵
     function A = JacobiH(mu, lam, d, Bk, dta)
         n2 = length(d);
-        A = zeros(n2 + 2, n2 + 2); % 初始化雅可比矩阵
-        pmu = -4 * mu / sqrt((lam + norm(d)^2 - dta^2)^2 + 4 * mu^2); % 计算雅可比矩阵中的元素
-        thetak = (lam + norm(d)^2 - dta^2) / sqrt((lam + norm(d)^2 - dta^2)^2 + 4 * mu^2); % 计算雅可比矩阵中的元素
+        A = zeros(n2 + 2, n2 + 2);
+        pmu = -4 * mu / sqrt((lam + norm(d)^2 - dta^2)^2 + 4 * mu^2); 
+        thetak = (lam + norm(d)^2 - dta^2) / sqrt((lam + norm(d)^2 - dta^2)^2 + 4 * mu^2);
         A = [1,             0,            zeros(1, n2);
              pmu,          1 - thetak,  -2 * (1 + thetak) * d';
              zeros(n2, 1), d,            Bk + lam * eye(n2)]; % 构建雅可比矩阵
