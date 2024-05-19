@@ -161,6 +161,6 @@ H\left(z_j\right)+H^{\prime}\left(z_j\right) \Delta z_j=\beta_j \bar{z} .
 \left\|H\left(z_j+\delta^{m_j} \Delta z_j\right)\right\| \leq\left[1-\sigma\left(1-\beta \mu_0\right) \delta^{m_j}\right]\left\|H\left(z_j\right)\right\| .
 ```
 
-令$\alpha_j:=\delta^{m_j}, z_{j+1}=z_j+\alpha_j \Delta z_j \text {. }$
+令 $\alpha_j:=\delta^{m_j}, z_{j+1}=z_j+\alpha_j \Delta z_j \text {. }$
 
 **步4** 令 $j:=j+1$, 转步 1 .
