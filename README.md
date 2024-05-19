@@ -138,9 +138,9 @@ r_k=\frac{\Delta f_k}{\Delta q_k} .
 **步4** 校正信赖域半径.
 
 ```math
-\begin{array}{ll}
-\begin{cases}\tau_1 \Delta_k, & \text { 若 } r_k \leq \eta_1, \\ \Delta_k, & \text { 若 } \eta_1<r_k<\eta_2, \\ \min \left\{\tau_2 \Delta_k, \tilde{\Delta}\right\}, & \text { 若 } r_k \geq \eta_2,\left\|d_k\right\|=\Delta_k .\end{cases}
-\end{array}
+
+\begin{equation}\Delta_{k+1}:= \begin{cases}\tau_1 \Delta_k, & \text { 若 } r_k \leq \eta_1, \\ \Delta_k, & \text { 若 } \eta_1<r_k<\eta_2, \\ \min \left\{\tau_2 \Delta_k, \tilde{\Delta}\right\}, & \text { 若 } r_k \geq \eta_2,\left\|d_k\right\|=\Delta_k .\end{cases}\end{equation}
+
 ```
 
 **步5** 若 $r_k>\eta_1$, 则令 $x_{k+1}:=x_k+d_k$, 更新矩阵 $B_k$ 到 $B_{k+1}$, 令 $k:=k+1$,转步 1 . 否则 $x_{k+1}:=x_k$, 令 $k:=k+1$, 转步 2 .
