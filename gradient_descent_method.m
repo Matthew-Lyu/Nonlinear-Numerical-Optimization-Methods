@@ -1,5 +1,5 @@
 function [x_opt, f_opt, iter] = gradient_descent_method(fun, grad_fun, x0)
-    % 梯度下降法函数
+    % 最速梯度下降法
     % 输入：
     %   fun: 目标函数
     %   grad_fun: 梯度函数
