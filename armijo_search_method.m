@@ -1,5 +1,5 @@
 function [mk, alpha, fk, newfk] = armijo_search_method(xk, dk, fun, grad)
-    % Armijo准则搜索算法函数
+    % Armijo准则搜索
     % 输入：
     %   xk: 当前点
     %   dk: 搜索方向
