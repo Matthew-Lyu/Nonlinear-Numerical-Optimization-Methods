@@ -1,6 +1,6 @@
 # Optimization-Theory-and-Methods
 
-本仓库是对最优化方法的介绍和MATLAB代码复现。
+本仓库是对无约束优化算法的介绍和Matlab代码复现。
 
 ### 0. 无约束优化问题：
 
