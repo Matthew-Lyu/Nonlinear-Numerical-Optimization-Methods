@@ -1,5 +1,5 @@
 function [x_opt, f_opt, iter] = FR_conjugate_gradient_method(fun, grad, x0)
-    % FR共轭梯度算法
+    % FR共轭梯度法
     % 输入：
     %   fun: 目标函数
     %   grad: 梯度函数
