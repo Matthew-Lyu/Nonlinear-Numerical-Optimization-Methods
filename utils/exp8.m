@@ -13,10 +13,16 @@ hessian = @(x) [2, 0; 0, 2];
 % 约束函数 x1 + x2 = 2
 cons = @(x) x(1) + x(2) - 2;
 
+% 约束函数的梯度
+cons_grad = @(x) x(1) + x(2) - 2 * [1; 1];
+
+% 约束函数的海森矩阵
+cons_hessian = @(x) [1, 1; 1, 1]; 
+
 x0 = [10; 10]; % 初始点
 tol = 1e-8; % 精度
 
-[x_opt, f_opt, iter] = exterior_penalty_method(fun, gfun, hessian, cons, x0, tol);
+[x_opt, f_opt, iter] = exterior_penalty_method(fun, gfun, hessian, cons,cons_grad,cons_hessian, x0, tol);
 
 fprintf('最优解: (%f, %f)\n', x_opt(1), x_opt(2));
 fprintf('最优值: %f\n', f_opt);

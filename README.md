@@ -1,6 +1,6 @@
 ## Optimization-Theory-and-Methods-Matlab
 
-本仓库是最优化方法的Matlab代码实现，并且给出了一些对应的数值优化问题的样例。
+本仓库是数值优化方法的Matlab代码实现，并在./utils下给出了对应的数值优化问题的样例。
 
 #### 无约束优化算法：
 

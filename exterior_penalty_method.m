@@ -1,4 +1,4 @@
-function [x_opt, f_val, iter] = exterior_penalty_method(fun, gfun, hfun, cons, x0, tol)
+function [x_opt, f_val, iter] = exterior_penalty_method(fun, gfun, hfun, cons,cons_grad,cons_hessian, x0, tol)
     % 外罚函数法用于解决有约束的优化问题。
     % 利用惩罚因子将约束条件整合到目标函数中，转换成无约束优化问题解决。
     % 输入：
@@ -6,6 +6,8 @@ function [x_opt, f_val, iter] = exterior_penalty_method(fun, gfun, hfun, cons, x
     %   gfun - 目标函数的梯度
     %   hfun - 目标函数的海森矩阵
     %   cons - 约束函数
+    %   cons_grad - 约束函数的梯度
+    %   cons_hessian - 约束函数的海森矩阵
     %   x0 - 初始迭代点
     %   tol - 约束满足的容忍度
     % 输出：
@@ -16,7 +18,7 @@ function [x_opt, f_val, iter] = exterior_penalty_method(fun, gfun, hfun, cons, x
     M = 1;  % 初始惩罚因子，用于控制约束违反的惩罚程度
     c = 10; % 惩罚因子的增长率，用于调整每轮迭代后惩罚因子的大小
     x = x0; % 初始点设置为输入的初始迭代点
-    max_iter = 100; % 设置最大迭代次数以防止无限循环
+    max_iter = 100; % 设置最大迭代次数
     iter = 0;
 
     % 主循环
@@ -25,10 +27,10 @@ function [x_opt, f_val, iter] = exterior_penalty_method(fun, gfun, hfun, cons, x
         penalty_fun = @(x) fun(x) + M * cons(x)^2;
         
         % 定义外罚函数的梯度，包括原始梯度与约束违反的梯度部分
-        penalty_grad = @(x) gfun(x) + 2 * M * cons(x) * [1; 1];
+        penalty_grad = @(x) gfun(x) + 2 * M * cons_grad(x);
         
         % 定义外罚函数的海森矩阵，增加对应的二次项以处理线性约束
-        penalty_hess = @(x) hfun(x) + 2 * M * [1, 1; 1, 1];
+        penalty_hess = @(x) hfun(x) + 2 * M * cons_hessian(x);
 
         % 调用阻尼牛顿法来求解无约束优化问题
         [x, ~, ~] = damp_newton_method(penalty_fun, penalty_grad, penalty_hess, x);

@@ -1,4 +1,4 @@
-function [x_opt, val_opt, itr] = L_M_least_squares_method(Fk, JFk, x0)
+function [x_opt, val_opt, itr] = l_m_least_squares_method(Fk, JFk, x0)
     % Levenberg-Marquardt 最小二乘法
     % 输入:
     %   x0 - 迭代的初始点
@@ -56,7 +56,7 @@ function [x_opt, val_opt, itr] = L_M_least_squares_method(Fk, JFk, x0)
         x0 = x0 + rho^mk * dk;
         % 基于新的函数值更新 mu
         muk = norm(feval(Fk, x0));
-        % 增加迭代计数器
+        % 增加迭代次数
         itr = itr + 1;
     end
 
