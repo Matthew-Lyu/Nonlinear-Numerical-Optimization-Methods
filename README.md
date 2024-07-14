@@ -2,7 +2,7 @@
 
 本仓库是非线性数值优化方法的Matlab代码实现，并在./utils下给出了对应的数值优化问题样例。
 
-<img src="./assets/Max_paraboloid.svg.png" width="1000px">
+<img src="./assets/Max_paraboloid.svg.png" width="500px">
 
 `gradient_descent_method`：梯度下降法
 
