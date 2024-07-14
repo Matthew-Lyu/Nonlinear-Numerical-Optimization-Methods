@@ -1,6 +1,6 @@
 # Nonlinear-Numerical-Optimization-Methods
 
-本仓库是数值优化方法的Matlab代码实现，并在./utils下给出了对应的数值优化问题的样例。
+本仓库是非线性数值优化方法的Matlab代码实现，并在./utils下给出了对应的数值优化问题样例。
 
 ## 无约束优化算法：
 
