@@ -26,7 +26,8 @@
 
 `genetic_algorithm`：遗传算法
 
-<img src="./assets/Max_paraboloid.svg.png" alt="Max_paraboloid.svg";width="10px"/>
+<img src="./assets/Max_paraboloid.svg.png" width="21px">
+
 
 ## 参考文献
 
