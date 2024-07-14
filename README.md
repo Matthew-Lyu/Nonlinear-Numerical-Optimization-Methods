@@ -2,6 +2,8 @@
 
 本仓库是非线性数值优化方法的Matlab代码实现，并在./utils下给出了对应的数值优化问题样例。
 
+<img src="./assets/Max_paraboloid.svg.png" width="100px">
+
 `gradient_descent_method`：梯度下降法
 
 `armijo_search_method`：Armijo搜索步长准则
@@ -25,8 +27,6 @@
 `interior_penalty_method`：内罚函数法
 
 `genetic_algorithm`：遗传算法
-
-<img src="./assets/Max_paraboloid.svg.png" width="21px">
 
 
 ## 参考文献
