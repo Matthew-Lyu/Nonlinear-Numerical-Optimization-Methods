@@ -1,6 +1,6 @@
 # Nonlinear-Numerical-Optimization-Methods
 
-本仓库是非线性数值优化方法的Matlab代码实现，并在./utils下给出了对应的数值优化问题样例。
+非线性数值优化方法的Matlab代码仓库，并给出了对应的数值优化问题样例，参见./utils
 
 <img src="./assets/Max_paraboloid.svg.png" width="500px">
 
