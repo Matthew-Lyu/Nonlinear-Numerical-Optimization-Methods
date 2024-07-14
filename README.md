@@ -1,8 +1,8 @@
-## Optimization-Theory-and-Methods-Matlab
+# Nonlinear-Numerical-Optimization-Methods
 
 本仓库是数值优化方法的Matlab代码实现，并在./utils下给出了对应的数值优化问题的样例。
 
-#### 无约束优化算法：
+## 无约束优化算法：
 
 `gradient_descent_method`：梯度下降法
 
@@ -18,7 +18,7 @@
 
 `trust_region_quadratic_model`：光滑牛顿法解决信赖域子问题
 
-#### 约束优化算法：
+## 约束优化算法：
 
 `l_m_least_squares_method`：Levenberg-Marquardt 最小二乘法
 
