@@ -2,7 +2,7 @@
 
 非线性数值优化方法的Matlab代码仓库，并给出了对应的数值优化问题样例，参见./utils
 
-<img src="./assets/Max_paraboloid.svg.png" width="350px">
+<img src="./assets/Max_paraboloid.svg.png" width="450px">
 
 `gradient_descent_method`：梯度下降法
 
