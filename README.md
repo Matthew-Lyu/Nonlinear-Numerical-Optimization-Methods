@@ -1,5 +1,7 @@
 # Nonlinear-Numerical-Optimization-Methods
 
+<img src="./assets/Max_paraboloid.svg.png" alt="Max_paraboloid.svg" style="zoom:18%;" />
+
 本仓库是非线性数值优化方法的Matlab代码实现，并在./utils下给出了对应的数值优化问题样例。
 
 `gradient_descent_method`：梯度下降法
